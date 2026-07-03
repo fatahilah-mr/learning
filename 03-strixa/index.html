@@ -11,15 +11,20 @@
             --bg-dark: #0a0a0f;
             --bg-card: #111118;
             --bg-card-hover: #1a1a24;
+            --bg-input: #0d0d14;
             --border: #1e1e2e;
             --border-hover: #2a2a3e;
+            --border-focus: rgba(0, 212, 255, 0.35);
             --text-primary: #f0f0f5;
             --text-secondary: #8a8a9e;
             --text-muted: #5a5a6e;
+            --text-placeholder: #4a4a5e;
             --accent: #00d4ff;
             --accent-dim: rgba(0, 212, 255, 0.08);
             --accent-glow: rgba(0, 212, 255, 0.15);
+            --accent-soft: rgba(0, 212, 255, 0.06);
             --radius: 14px;
+            --radius-sm: 10px;
             --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
@@ -61,6 +66,9 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            border: none;
+            background: none;
+            cursor: pointer;
         }
         .logo-dot {
             width: 8px; height: 8px;
@@ -79,6 +87,7 @@
             font-weight: 500;
             position: relative;
             transition: color var(--transition);
+            cursor: pointer;
         }
         .nav-links a::after {
             content: '';
@@ -402,6 +411,211 @@
             line-height: 1.6;
         }
 
+        /* ═══ CONTACT SECTION ═══ */
+        .contact-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #0c0c14 100%);
+            border-top: 1px solid var(--border);
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .contact-info h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .contact-info > p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 36px;
+            max-width: 380px;
+        }
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 18px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition);
+        }
+        .contact-method:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateX(4px);
+        }
+        .contact-method-icon {
+            width: 42px; height: 42px;
+            min-width: 42px;
+            background: var(--accent-dim);
+            border: 1px solid rgba(0,212,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-method-icon svg {
+            width: 18px; height: 18px;
+            color: var(--accent);
+        }
+        .contact-method-body h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+        }
+        .contact-method-body p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .contact-method-body .copy-btn {
+            margin-top: 6px;
+            font-size: 0.75rem;
+            color: var(--accent);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            font-weight: 500;
+            opacity: 0.7;
+            transition: opacity var(--transition);
+        }
+        .contact-method-body .copy-btn:hover { opacity: 1; }
+
+        /* ─── Contact Form ─── */
+        .contact-form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-form-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        .form-group label span {
+            color: var(--accent);
+            margin-left: 2px;
+        }
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 13px 16px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.92rem;
+            outline: none;
+            transition: all var(--transition);
+        }
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--text-placeholder);
+        }
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-soft);
+        }
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238a8a9e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 42px;
+        }
+        .form-select option {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .btn-submit {
+            width: 100%;
+            padding: 14px 28px;
+            background: var(--accent);
+            color: #000;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all var(--transition);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(0, 212, 255, 0.35);
+        }
+        .btn-submit svg {
+            width: 16px; height: 16px;
+            transition: transform var(--transition);
+        }
+        .btn-submit:hover svg { transform: translateX(3px); }
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .form-success svg {
+            width: 56px; height: 56px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .form-success h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .form-success p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
         /* ─── Footer ─── */
         footer {
             border-top: 1px solid var(--border);
@@ -425,6 +639,13 @@
         }
 
         /* ─── Responsive ─── */
+        @media (max-width: 900px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            .contact-form-card { padding: 28px; }
+        }
         @media (max-width: 640px) {
             .navbar-inner { height: 56px; }
             .nav-links { gap: 20px; }
@@ -434,6 +655,8 @@
             .portfolio-grid { grid-template-columns: 1fr; }
             .filter-bar { gap: 8px; }
             .filter-btn { padding: 8px 16px; font-size: 0.8rem; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-form-card { padding: 24px; }
         }
     </style>
 <base target="_blank">
@@ -443,13 +666,14 @@
     <!-- ═══ Navbar ═══ -->
     <nav class="navbar">
         <div class="navbar-inner">
-            <a href="#" class="logo">
+            <button class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
                 <span class="logo-dot"></span>
                 Strixa
-            </a>
+            </button>
             <div class="nav-links">
-                <a href="#services">Layanan</a>
-                <a href="#portfolio">Portofolio</a>
+                <a onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Layanan</a>
+                <a onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">Portofolio</a>
+                <a onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Kontak</a>
             </div>
         </div>
     </nav>
@@ -463,10 +687,10 @@
             </div>
             <h1><span>Modern Web</span> & Infrastructure Studio.</h1>
             <p>Kami membangun arsitektur cloud yang tangguh dan mengoptimalkan performa web hingga instan.</p>
-            <a href="#portfolio" class="btn-primary">
+            <button class="btn-primary" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">
                 Jelajahi Proyek
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+            </button>
         </div>
     </section>
 
@@ -607,6 +831,95 @@
         </div>
     </section>
 
+    <!-- ═══ Contact Section ═══ -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <div class="accent-line"></div>
+                <h2>Hubungi Kami</h2>
+                <p>Punya proyek atau butuh konsultasi? Tim Strixa siap membantu.</p>
+            </div>
+            <div class="contact-wrapper reveal">
+                <!-- Info Column -->
+                <div class="contact-info">
+                    <h3>Mari Berdiskusi</h3>
+                    <p>Jelaskan kebutuhan teknologi Anda dan kami akan menghubungi Anda dalam waktu 1×24 jam kerja.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div class="contact-method-body">
+                                <h4>Email</h4>
+                                <p>hello@strixa.dev</p>
+                                <button class="copy-btn" onclick="navigator.clipboard.writeText('hello@strixa.dev');this.textContent='Disalin!';setTimeout(()=>this.textContent='Salin ke Clipboard',1500)">Salin ke Clipboard</button>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div class="contact-method-body">
+                                <h4>Telepon / WhatsApp</h4>
+                                <p>+62 812-3456-7890</p>
+                                <button class="copy-btn" onclick="navigator.clipboard.writeText('+6281234567890');this.textContent='Disalin!';setTimeout(()=>this.textContent='Salin ke Clipboard',1500)">Salin ke Clipboard</button>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div class="contact-method-body">
+                                <h4>Lokasi</h4>
+                                <p>Jakarta, Indonesia<br><span style="font-size:0.78rem;color:var(--text-muted)">Bekerja secara remote & on-site</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="contact-form-card" id="contactFormCard">
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nama Lengkap<span>*</span></label>
+                                <input type="text" id="name" class="form-input" placeholder="Nama Anda" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email<span>*</span></label>
+                                <input type="email" id="email" class="form-input" placeholder="nama@perusahaan.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Jenis Layanan</label>
+                            <select id="subject" class="form-select">
+                                <option value="">Pilih layanan yang diminati...</option>
+                                <option value="cloud">Cloud Migration</option>
+                                <option value="performance">Web Performance Optimization</option>
+                                <option value="development">Custom Web Development</option>
+                                <option value="managed">Managed IT Systems</option>
+                                <option value="other">Lainnya / Konsultasi Umum</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan<span>*</span></label>
+                            <textarea id="message" class="form-textarea" placeholder="Ceritakan sedikit tentang proyek atau kebutuhan Anda..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            Kirim Pesan
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+                        </button>
+                    </form>
+                    <div class="form-success" id="formSuccess">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <h4>Pesan Terkirim!</h4>
+                        <p>Terima kasih telah menghubungi Strixa. Tim kami akan segera merespons email Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══ Footer ═══ -->
     <footer>
         <p>© 2026 Strixa. Dilindungi Undang-Undang.</p>
@@ -645,6 +958,18 @@
                     }
                 });
             });
+        });
+
+        // ─── Contact Form ───
+        const contactForm = document.getElementById('contactForm');
+        const formSuccess = document.getElementById('formSuccess');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Simulasi pengiriman — ganti dengan integrasi backend (Formspree, EmailJS, dll.)
+            contactForm.style.display = 'none';
+            formSuccess.style.display = 'block';
+            formSuccess.classList.add('reveal', 'visible');
         });
     </script>
 </body>
